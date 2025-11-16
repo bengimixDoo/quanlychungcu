@@ -1,6 +1,6 @@
 from django.db import models
 
-# Data model
+# Data model 
 class HoKhau(models.Model):
     mahokhau = models.CharField(db_column='mahokhau', primary_key=True, max_length=10)
     diachi = models.CharField(db_column='diachi', max_length=30)
@@ -11,14 +11,14 @@ class HoKhau(models.Model):
     soxemay = models.IntegerField(db_column='soxemay', null=True)
     sooto = models.IntegerField(db_column='sooto', null=True)
     soxedap = models.IntegerField(db_column='soxedap', null=True)
-
+    
     def __str__(self):
         return f"HoKhau {self.mahokhau} - {self.diachi}"
 
     class Meta:
         db_table = 'hokhau'
         managed = False
-
+	
 class NhanKhau(models.Model):
     mahokhau = models.CharField(db_column='mahokhau', max_length=10)
     socccd = models.CharField(db_column='socccd', primary_key=True, max_length=15)
@@ -29,7 +29,7 @@ class NhanKhau(models.Model):
     quanhe = models.CharField(db_column='quanhe', max_length=20, null=True)
     tamvang = models.IntegerField(db_column='tamvang', null=True)
     tamtru = models.IntegerField(db_column='tamtru', null=True)
-
+    
     class Meta:
         db_table = 'nhankhau'
 
@@ -37,18 +37,18 @@ class NhanKhau(models.Model):
 # ---- Additional models mapped from your SQL schema ----
 
 
-# class Users(models.Model):
-#   username = models.CharField(db_column='username', primary_key=True, max_length=30)
- #   password = models.CharField(db_column='password', max_length=100)
-  #  hoten = models.CharField(db_column='hoten', max_length=100)
-   # email = models.CharField(db_column='email', unique=True, max_length=100)
-    #sodt = models.CharField(db_column='sodt', max_length=20, null=True)
-    #diachi = models.CharField(db_column='diachi', max_length=255, null=True)
-    #tuoi = models.IntegerField(db_column='tuoi', null=True)
+class Users(models.Model):
+    username = models.CharField(db_column='username', primary_key=True, max_length=30)
+    password = models.CharField(db_column='password', max_length=100)
+    hoten = models.CharField(db_column='hoten', max_length=100)
+    email = models.CharField(db_column='email', unique=True, max_length=100)
+    sodt = models.CharField(db_column='sodt', max_length=20, null=True)
+    diachi = models.CharField(db_column='diachi', max_length=255, null=True)
+    tuoi = models.IntegerField(db_column='tuoi', null=True)
 
-    #class Meta:
-     #   db_table = 'users'
-      #  managed = False
+    class Meta:
+        db_table = 'users'
+        managed = False
 
 
 class PhiSinhHoat(models.Model):
@@ -208,4 +208,5 @@ class DSChiPhiDongGop(models.Model):
     class Meta:
         db_table = 'dschiphidonggop'
         managed = False
-
+    
+    
