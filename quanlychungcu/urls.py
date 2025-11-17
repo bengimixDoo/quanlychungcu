@@ -1,5 +1,3 @@
-# Mở file: quanlychungcu/urls.py
-
 from django.contrib import admin
 from django.urls import path, include
 
@@ -10,10 +8,14 @@ from rest_framework_simplejwt.views import TokenRefreshView
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-    # === URLs Đăng nhập (JWT) ===
-    path('api/token/', MyTokenObtainPairView.as_view(), name='token_obtain_pair'),
-    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    # === SỬA LỖI Ở ĐÂY ===
+    # Thay thế 'api/token/' bằng đường dẫn mà FE React đang gọi
 
-    # (Chúng ta sẽ thêm 'api.urls' vào đây sau khi bạn sẵn sàng)
+    path('api/v1/auth/login/', MyTokenObtainPairView.as_view(), name='token_obtain_pair'),
+
+    # (Chúng ta cũng đổi 'refresh' cho đồng bộ)
+    path('api/v1/auth/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+
+    # (Chúng ta sẽ bật lại 'api.urls' sau khi login thành công)
     # path('api/', include('api.urls')),
 ]
