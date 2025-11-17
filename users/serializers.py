@@ -8,5 +8,5 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
         token = super().get_token(user)
         # Thêm thông tin tùy chỉnh vào token (JSON)
         token['username'] = user.username
-        token['hoten'] = user.hoten
+        #token['hoten'] = user.hoten
         return token
