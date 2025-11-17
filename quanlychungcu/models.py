@@ -37,18 +37,18 @@ class NhanKhau(models.Model):
 # ---- Additional models mapped from your SQL schema ----
 
 
-class Users(models.Model):
-    username = models.CharField(db_column='username', primary_key=True, max_length=30)
-    password = models.CharField(db_column='password', max_length=100)
-    hoten = models.CharField(db_column='hoten', max_length=100)
-    email = models.CharField(db_column='email', unique=True, max_length=100)
-    sodt = models.CharField(db_column='sodt', max_length=20, null=True)
-    diachi = models.CharField(db_column='diachi', max_length=255, null=True)
-    tuoi = models.IntegerField(db_column='tuoi', null=True)
+# class Users(models.Model):
+#     username = models.CharField(db_column='username', primary_key=True, max_length=30)
+#     password = models.CharField(db_column='password', max_length=100)
+#     hoten = models.CharField(db_column='hoten', max_length=100)
+#     email = models.CharField(db_column='email', unique=True, max_length=100)
+#     sodt = models.CharField(db_column='sodt', max_length=20, null=True)
+#     diachi = models.CharField(db_column='diachi', max_length=255, null=True)
+#     tuoi = models.IntegerField(db_column='tuoi', null=True)
 
-    class Meta:
-        db_table = 'users'
-        managed = False
+#     class Meta:
+#         db_table = 'users'
+#         managed = False
 
 
 class PhiSinhHoat(models.Model):

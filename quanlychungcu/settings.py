@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     # App của bạn
     'users.apps.UsersConfig',
     # 'api.apps.ApiConfig', # <-- CHÚNG TA SẼ THÊM APP NÀY SAU
+    'quanlychungcu'
 ]
 
 MIDDLEWARE = [
@@ -100,7 +101,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # === CẤU HÌNH QUAN TRỌNG CHO LOGIN ===
 
 # 1. Chỉ định Custom User Model
-AUTH_USER_MODEL = 'users.CustomUser'
+# AUTH_USER_MODEL = 'users.CustomUser'
 
 # 2. Cấu hình CORS (Cho phép FE gọi)
 CORS_ALLOW_ALL_ORIGINS = True

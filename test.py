@@ -1,22 +1,21 @@
-
 import os
 import django
 
-# BƯỚC 1: Đặt biến môi trường DJANGO_SETTINGS_MODULE
-# THAY THẾ 'ten_du_an_cua_ban' bằng tên thư mục chứa settings.py
-# Ví dụ: 'quanlychungcu.settings'
+# Bước 1: Khởi tạo Django
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "quanlychungcu.settings")
-
-# BƯỚC 2: Khởi tạo Django
-# Lệnh này tải tất cả cấu hình, models và ứng dụng.
 django.setup()
 
-# --- Mã của bạn truy cập Models hoặc Settings sẽ chạy sau dòng này ---
-from quanlychungcu.models import Users
+from django.contrib.auth.models import User
 
-# Lấy tất cả
-user_list = Users.objects.all()
+# Lấy user theo username
+username = "admin"
+password_input = "123"  # mật khẩu cần kiểm tra
 
-# In ra danh sách
-for u in user_list:
-    print(u.username, u.email)
+try:
+    user = User.objects.get(username=username)
+    if user.check_password(password_input):
+        print("Mật khẩu đúng!")
+    else:
+        print("Mật khẩu sai!")
+except User.DoesNotExist:
+    print("User không tồn tại")
